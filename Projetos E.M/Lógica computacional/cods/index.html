@@ -1,0 +1,145 @@
+<!DOCTYPE html><!--refere-se mais para a parte visual e interativa com o usuário-->
+<html lang="en">
+
+<head><!--é a parte referente ao link, tipo e dados do site-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: aquamarine;
+        }
+
+        img {
+            width: 20%;
+            height: 30%;
+        }
+
+        .geral {
+
+            text-align: center;
+        }
+
+        .radios {
+            text-align: justify;
+            margin-left: 42%;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body><!--referente a parte visual e de interação com o usuário-->
+    <div class="geral">
+        <!-- os códigos abaixo indicam os variados tamanhos de fonte em ordem decrescente-->
+        <h1>Minha primeira página, h1</h1>
+        <h2>Minha primeira página, h2</h2>
+        <h3>Minha primeira página, h3</h3>
+        <h4>Minha primeira página, h4</h4>
+        <h5>Minha primeira página, h5</h5>
+        <h6>Minha primeira página, h6</h6>
+        <!--a tag<p> cria parágrafos, 
+        a tag<a> adiciona links, 
+        a tag<img> adiciona imagens e 
+        a tag<br> quebra linha -->
+        <p>Com a tag < p> podemos fazer parágrafos!</p>
+        <a href="https://www.youtube.com/watch?v=cfiHHImr6qA">Com a tag < a> podemos criar links</a><br>
+        <img src="https://pbs.twimg.com/media/FH63ZT3XMAMBfF2.jpg" alt="Shrek albino">Com a tag < img> podemos colocar
+            imagens</img><br><br>
+            <!--a tag<button> adiciona um botão, que só pode ser clicável se possuir a função onclick em conjunto, 
+                além do nome do botão após o on click-->
+            <button onclick="media()" type="button" class="btn btn-outline-success btn-lg" style="width: 300px;">Cálculo
+                da média</button><br>
+            <button onclick="dia17()" type="button" class="btn btn-outline-info btn-lg" style="width: 300px;">Dia
+                17</button><br><br>
+            <h3>Conversor de Temperatura</h3>
+            <!-- há diversos tipos de input entre eles: 
+            input type number = só aceita digitos numéricos 
+            OBS: em conjunto com o placeholder pode formar uma mensagem indicando o que o user deve digitar
+            input type radio forma bolinhas que podem ser selecionadas
+            OBS: todos devem ter id diferente para que possam ser calculados e
+            o mesmo name para que apenas uma opção possa ser selecionada em vez de várias-->
+            <input id="temp" type="number" placeholder="Digite a temperatura"><br>
+            <div class="radios">
+                <!--Essa tag serve para adicionar Comentarios no HTML, não estando dentro das tags(<>)-->
+                <input id="cf" name="tipo" type="radio">Celsius para Fahrenheit</input><br>
+                <input id="ck" name="tipo" type="radio">Celsius para Kelvin</input><br>
+                <input id="fc" name="tipo" type="radio">Fahrenheit para Celsius</input><br>
+                <input id="fk" name="tipo" type="radio">Fahrenheit para Kelvin</input><br>
+                <input id="kc" name="tipo" type="radio">Kelvin para Celsius</input><br>
+                <input id="kf" name="tipo" type="radio">Kelvin para Fahrenheit</input><br>
+            </div>
+            <button onclick="converte()" type="button" class="btn btn-outline-primary btn-lg"
+                style="width: 300px;">Converter</button><br>
+            <p id="result">Resultado</p>
+    </div>
+</body>
+
+</html>
+<script>//é a linguagem utilizado para os comandos de funcionamento do site, o que não exatamente aparece parao user
+//esse comando é utilizado para escrever comentarios no script, abaixo vamos trabalhar com diversas funções que executam diferentes ações na página, de acordo com a in
+// a function média, como o nome diz executa a média de certos números digitados pelo user    
+function media() {
+    //prompt é o comando que mostra uma caixa de texto com uma mensagem e um espaço de interação(digito)com o user
+        var n = prompt("Digite a quantidade de valores para calcular a média!")
+        //para executar a média, utiliza-se essa forma:
+        var resultado, soma = 0
+        for (var i = 1; i <= n; i++) {
+            soma += Number(prompt("Digite o " + i + "º número!"))
+        }
+        resultado = soma / n
+        //quando o código for executado o comando alert fará com que apareça uma mensagem para o user
+        alert("A média é " + resultado)
+    }
+    //a funtion dia17, refere-se a função que calcula a idade do user, identificando se ele é maior ou menor de idade 
+    function dia17() {
+//como na função anterior, o prompt mostra ao usuário uma mensagem com um campo de interação
+        var nome = prompt("Digite seu nome!")
+        var anoAtual = prompt("Digite o ano atual!")
+        var anoNasc = prompt("Digite o ano que você nasceu!")
+        //a fórmula utilizada para saber a idade do usuário é essa
+        var idade = anoAtual - anoNasc
+        //Para saber se ele é de menor ou não utiliza-se os comandos if e else, comparando as diferentes respostas, para caso o usuário tenha ou não 18
+        if (idade >= 18) {
+            alert("Bem vindo, " + nome + "!\nEm " + anoAtual + " você completa " + idade + " anos!\nPortanto maior de idade!")
+        }
+        else {
+            alert("Bem vindo, " + nome + "!\n em " + anoAtual + " você completa " + idade + " anos!\nPortanto menor de idade!")
+        }
+    }
+    //a function converte, faz a conversão de diferentes tipod de temperaturas 
+    function converte() {
+//cada comando na linha abaixo possui um motivo: 
+//var temperatura identifica o que está sendo digitado
+//number faz com que o computador entenda como número e não caractere(exemplo: 1+1=11
+//(document.getElementById("temp") associa com o identificador da variável, getElementById é um dos comandos mais utilizados na programação)
+//value coleta o valor da variável, o seu conteúdo, em vez de apenas seu nome 
+        var temperatura = Number(document.getElementById("temp").value)
+        var resultado = 0
+        //os comandos if e else if, verificam qual ação deve tomar caso(SE) um determinado botão esteja selecionado, 
+        //o comando(document.getElementById("") age novamente, dessa vez usando o Id do tipo de unidade
+        //checked verifica se o botão do Id referido está selecionado
+        if (document.getElementById("cf").checked) {
+            //abaixo é mostrado a fórmula de acordo com o tipo de converção, os parenteses indicam qual operação deve ser executada primeiro
+            resultado = temperatura * (9 / 5) + 32
+        }
+        else if (document.getElementById("ck").checked) {
+            resultado = temperatura + 273.15
+        }
+        else if (document.getElementById("fc").checked) {
+            resultado = (temperatura - 32) * (5 / 9)
+        }
+        else if (document.getElementById("fk").checked) {
+            resultado = (temperatura - 32) * 5 / 9 + 273, 15
+        }
+        else if (document.getElementById("kc").checked) {
+            resultado = temperatura - 273
+        }
+        else if (document.getElementById("kf").checked) {
+            resultado = (temperatura - 273) * (9/5) + 32
+        }
+        //a linha abaixo associa o id do resultado, com o id do resultado que aparecerá para o usuário
+        document.getElementById("result").innerHTML = resultado
+    }
+</script>

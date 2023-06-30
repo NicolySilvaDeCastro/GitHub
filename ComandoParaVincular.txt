@@ -1,7 +1,0 @@
-git remote add origin https://COLAR A TOKEN AQUI@ copiado do seu repositório .git
-
-git remote add origin
-https://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@github.com/NicolySilvaDeCastro/GitHub.git
-
-
-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

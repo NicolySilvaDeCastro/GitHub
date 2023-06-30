@@ -1,0 +1,18 @@
+//descrição
+for (let i=0;i<4;i++){
+    console.log(i)
+}
+var obj = {a:1,b:2, c:3}
+for(let prop in obj){
+    console.log("obj", prop, "=",obj[prop])
+}
+var iteravel=[{nome:"Danilo", prof:true},
+    {nome:"Sergio", prof:true},
+    {nome:"Ramiro", prof:false}]
+for (const valor of iteravel){
+    console.log(valor.nome)
+}
+var interavel="casa"
+for (const valor of iteravel) {
+    console.log(valor)
+}
